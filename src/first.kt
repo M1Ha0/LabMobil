@@ -25,6 +25,7 @@ println("Одномерный массив: $k")
         for (value in row) {
             print("$value \t")
             h+=value
+
         }
         println()
     }
