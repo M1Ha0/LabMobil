@@ -1,23 +1,30 @@
 import javax.swing.text.Position
 import java.util.Random
 
-fun main(){
-    var arr1=emptyArray<Int>()
-    val sum = {x:Int, y:Int ->  while(arr1.size<10)
-        {
-        var a = Random().nextInt(10,100)
-            if(a<=y&&a/10+a%10==x){
-                arr1+=a
-                a=0
-            }
-         println(arr1[+1])
+fun main() {
+    print("K = ")
+    val k = readLine()!!.toInt()
+    print("N = ")
+    val n = readLine()!!.toInt()
+    val numbers = funsec(k, n)
+    println(numbers.joinToString())
+}
+fun funsec(k: Int, n: Int): List<Int> {
+    val numbers = mutableListOf<Int>()
+
+    for (i in 1..n) {
+        var sum = 0
+        var num = i
+        while (num > 0) {
+            sum += num % 10
+            num /= 10
+        }
+        if (sum == k) {
+            numbers.add(i)
         }
     }
-    println("Введите N")
-    val x = readLine()!!.toInt()
-    println("Введите K")
-    val y = readLine()!!.toInt()
 
+    return numbers
 }
 
 
